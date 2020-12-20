@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/OpenWeatherMap-React-Bootstrap/static/css/main.ab7136cd.chunk.css",
-    "main.js": "/OpenWeatherMap-React-Bootstrap/static/js/main.5d444e2f.chunk.js",
-    "main.js.map": "/OpenWeatherMap-React-Bootstrap/static/js/main.5d444e2f.chunk.js.map",
+    "main.js": "/OpenWeatherMap-React-Bootstrap/static/js/main.d16e5a48.chunk.js",
+    "main.js.map": "/OpenWeatherMap-React-Bootstrap/static/js/main.d16e5a48.chunk.js.map",
     "runtime-main.js": "/OpenWeatherMap-React-Bootstrap/static/js/runtime-main.b35a9d38.js",
     "runtime-main.js.map": "/OpenWeatherMap-React-Bootstrap/static/js/runtime-main.b35a9d38.js.map",
     "static/css/2.20aa2d7b.chunk.css": "/OpenWeatherMap-React-Bootstrap/static/css/2.20aa2d7b.chunk.css",
@@ -20,6 +20,6 @@
     "static/css/2.20aa2d7b.chunk.css",
     "static/js/2.4d0b33f8.chunk.js",
     "static/css/main.ab7136cd.chunk.css",
-    "static/js/main.5d444e2f.chunk.js"
+    "static/js/main.d16e5a48.chunk.js"
   ]
 }
