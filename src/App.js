@@ -65,7 +65,7 @@ function App() {
               value={getState}
               placeholder="search weather by city"/>
             </Form.Group>
-            <Button style={{backgroundColor:"#3fb950" ,  border: "#3fb950"}} onClick={submitHandler}>Search</Button>
+            <Button style={{backgroundColor:"#238636" ,  border: "#238636"}} onClick={submitHandler}>Search</Button>
           </Card.Body>
         </div>
       </Card>
@@ -105,7 +105,7 @@ function App() {
           <Container>
             <CardDeck>
               <Card style={{border: "#21262d"}}>
-                <Card.Header className="h5" style={{backgroundColor:"#161b22" , color:"#e3b341"}}>feelslike</Card.Header>
+                <Card.Header className="h5" style={{backgroundColor:"#161b22" , color:"#e3b341"}}>Feels Like</Card.Header>
                 <Card.Body style={{backgroundColor:"#0d1117"}}>
                 <Card.Text className="h6">
                   {kelvinToFarenheit(apiData.main.feels_like)}&deg;C
@@ -113,7 +113,7 @@ function App() {
                 </Card.Body>
               </Card>
               <Card style={{border: "#21262d"}}>
-                <Card.Header className="h5" style={{backgroundColor:"#161b22" , color:"#da3633"}}>temp max</Card.Header>
+                <Card.Header className="h5" style={{backgroundColor:"#161b22" , color:"#da3633"}}>Temp Max</Card.Header>
                 <Card.Body style={{backgroundColor:"#0d1117"}}>
                 <Card.Text className="h6">
                   {kelvinToFarenheit(apiData.main.temp_max)}&deg; C
@@ -121,7 +121,7 @@ function App() {
                 </Card.Body>
               </Card>
               <Card style={{border: "#21262d"}}>
-                <Card.Header className="h5" style={{backgroundColor:"#161b22" , color:"#8957e5"}}>temp min</Card.Header>
+                <Card.Header className="h5" style={{backgroundColor:"#161b22" , color:"#8957e5"}}>Temp Min</Card.Header>
                 <Card.Body style={{backgroundColor:"#0d1117"}}>
                 <Card.Text className="h6">
                   {kelvinToFarenheit(apiData.main.temp_min)}&deg; C
