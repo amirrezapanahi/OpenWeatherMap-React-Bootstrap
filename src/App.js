@@ -4,7 +4,6 @@ import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import Spinner from 'react-bootstrap/Spinner';
 import Card from 'react-bootstrap/Card';
-import CardDeck from 'react-bootstrap/CardDeck';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -180,7 +179,8 @@ function App() {
               <div align="center">
                 <br />
                 <Container>
-                  <CardDeck>
+                  <Row xs={1} md={2} className="g-3">
+                    <Col>
                     <Card style={{border: "#21262d"}}>
                       <Card.Header className="h3" style={{backgroundColor:"#161b22" , color:"#8957e5"}}>Location</Card.Header>
                       <Card.Body style={{backgroundColor:"#0d1117"}}>
@@ -190,6 +190,8 @@ function App() {
                         </Card.Text>
                       </Card.Body>
                     </Card>
+                    </Col>
+                    <Col>
                     <Card style={{border: "#21262d"}}>
                       <Card.Header className="h3" style={{backgroundColor:"#161b22" , color:"#da3633"}}>Temperature</Card.Header>
                       <Card.Body style={{backgroundColor:"#0d1117"}}>
@@ -205,17 +207,19 @@ function App() {
                           )}
                         </Card.Text>
                         {apiData.weather?.[0]?.description && (
-                          <Badge variant="secondary" style={{background:'#30363d', color:'#c9d1d9'}}>
+                          <Badge bg="secondary" style={{background:'#30363d', color:'#c9d1d9'}}>
                             {apiData.weather?.[0]?.description}
                           </Badge>
                         )}
                       </Card.Body>
                     </Card>
-                  </CardDeck>
+                    </Col>
+                  </Row>
                 </Container>
 
                 <Container>
-                  <CardDeck>
+                  <Row xs={1} sm={2} md={4} className="g-3">
+                    <Col>
                     <Card style={{border: "#21262d"}}>
                       <Card.Header className="h5" style={{backgroundColor:"#161b22" , color:"#e3b341"}}>Feels Like</Card.Header>
                       <Card.Body style={{backgroundColor:"#0d1117"}}>
@@ -224,6 +228,8 @@ function App() {
                         </Card.Text>
                       </Card.Body>
                     </Card>
+                    </Col>
+                    <Col>
                     <Card style={{border: "#21262d"}}>
                       <Card.Header className="h5" style={{backgroundColor:"#161b22" , color:"#da3633"}}>Temp Max</Card.Header>
                       <Card.Body style={{backgroundColor:"#0d1117"}}>
@@ -232,6 +238,8 @@ function App() {
                         </Card.Text>
                       </Card.Body>
                     </Card>
+                    </Col>
+                    <Col>
                     <Card style={{border: "#21262d"}}>
                       <Card.Header className="h5" style={{backgroundColor:"#161b22" , color:"#8957e5"}}>Temp Min</Card.Header>
                       <Card.Body style={{backgroundColor:"#0d1117"}}>
@@ -240,6 +248,8 @@ function App() {
                         </Card.Text>
                       </Card.Body>
                     </Card>
+                    </Col>
+                    <Col>
                     <Card style={{border: "#21262d"}}>
                       <Card.Header className="h5" style={{backgroundColor:"#161b22" , color:"#388afc"}}>Humidity</Card.Header>
                       <Card.Body style={{backgroundColor:"#0d1117"}}>
@@ -248,7 +258,8 @@ function App() {
                         </Card.Text>
                       </Card.Body>
                     </Card>
-                  </CardDeck>
+                    </Col>
+                  </Row>
                 </Container>
               </div>
             ) : (!loading && !error ? (
