@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# OpenWeatherMap React + Bootstrap
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple weather app built with React and React‑Bootstrap that fetches current conditions from OpenWeatherMap. Includes a dark UI theme, search by city, unit switching, geolocation, and production Docker packaging via NGINX.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- City search with Enter‑to‑search and a visible Search button
+- Unit toggle: Celsius (°C) and Fahrenheit (°F), persisted in `localStorage`
+- Geolocation button to use the user’s current location
+- Weather icon and description from OpenWeatherMap
+- Clear loading and error states
+- Last updated timestamp
+- Dark, accessible color scheme
 
-### `npm start`
+## Screenshots
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Coming soon (add your screenshots here)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Getting Started (Local)
 
-### `npm test`
+Prerequisites:
+- Node.js 16+ and npm
+- An OpenWeatherMap API key
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Steps:
+- Copy `.env.example` to `.env` and set your API key:
+  - `REACT_APP_API_KEY=your_openweathermap_api_key`
+- Install and run:
+  - `npm ci`
+  - `npm start`
+- Open `http://localhost:3000` in your browser.
 
-### `npm run build`
+## Environment Variables
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- `REACT_APP_API_KEY` (required): your OpenWeatherMap API key. Note: Create React App only exposes variables prefixed with `REACT_APP_`.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Docker (Production)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This repo includes a multi‑stage Dockerfile that builds the app and serves it with NGINX. Because Create React App inlines env vars at build time, pass your API key at build.
 
-### `npm run eject`
+Build the image:
+- `docker build -t owm-react --build-arg REACT_APP_API_KEY=YOUR_KEY .`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Run the container:
+- `docker run --rm -p 8080:80 owm-react`
+- App is available at `http://localhost:8080`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Notes:
+- The container serves a static production build. To change the API key, rebuild the image with a new `--build-arg`.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## UI/UX Improvements
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Added unit toggle with persistence
+- Added geolocation support and graceful errors
+- Fixed Enter‑to‑search; improved placeholders and labels
+- Display weather icons and descriptions
+- Better loading and error feedback
+- Minor accessibility and contrast adjustments
 
-## Learn More
+## Project Structure
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- `src/App.js` – main UI and fetch logic
+- `src/components/Header.js` – top navigation bar
+- `.env.example` – env var template
+- `Dockerfile` – multi‑stage build and NGINX serve
+- `nginx.conf` – SPA routing fallback
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Scripts
 
-### Code Splitting
+- `npm start` – run locally (development)
+- `npm run build` – build production bundle
+- `npm test` – run tests (CRA defaults; may not be updated for this UI)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Notes
 
-### Analyzing the Bundle Size
+- Tests in `src/App.test.js` are from CRA boilerplate and may not reflect the current UI. Update or remove as needed.
+- Do not commit a real `.env` with secrets. Use `.env.example`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## License
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+See `LICENSE` for details.
